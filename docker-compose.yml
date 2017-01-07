@@ -1,0 +1,17 @@
+version: '2'
+services:
+  logspout:
+    build:
+      context: docker
+      args:
+# logspout v3.1; commit on Dec 31, 2016
+          version: 6c88eec93643799a83a5aa08745eab600290823d
+    command: /usr/bin/logspout
+    environment:
+      - LOGSPOUT=ignore
+    ports:
+      - "8000:80"
+    restart: "always"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+

@@ -1,0 +1,20 @@
+version: '2'
+services:
+  syslog:
+    image: colstrom/syslog
+    environment:
+      LOGSPOUT: ignore
+  logspout:
+    environment:
+      ROUTE_URIS: syslog+udp://syslog:514
+      SYSLOG_FORMAT: rfc3164
+      LOGSPOUT: ignore
+    links:
+      - syslog:syslog
+  netcat:
+    build:
+      context: .
+    command: nc -lvp 9000
+    ports:
+      - 9000:9000
+
