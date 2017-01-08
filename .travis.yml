@@ -47,7 +47,7 @@ script:
     sleep 5
     docker-compose exec logspout /bin/bash -c 'ps aux | grep -v "entrypoint" | awk "/^root.*\/usr\/bin\/logspout$/ {print \"TEST PASSED\"}"' | grep PASSED
     docker-compose down
-    docker tag exim:latest $REPO
+    docker tag logspout:latest $REPO
     docker tag $REPO $REPO:$GIT_TAG
   - echo -en 'travis_fold:end:build\\r'
 
