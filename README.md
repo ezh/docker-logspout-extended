@@ -1,5 +1,6 @@
-docker-logspout-sourcebased [![Build Status](https://travis-ci.org/ezh/docker-logspout-sourcebased.png?branch=master)](https://travis-ci.org/ezh/docker-logspout-sourcebased) [![Pulls](https://img.shields.io/docker/pulls/ezh1k/logspout.svg)](https://hub.docker.com/r/ezh1k/logspout/) [![Releases](https://img.shields.io/github/release/ezh/docker-logspout-sourcebased.svg)](https://github.com/ezh/docker-logspout-sourcebased/releases) [![License](https://img.shields.io/github/license/ezh/docker-logspout-sourcebased.svg)](https://github.com/ezh/docker-logspout-sourcebased/blob/master/LICENSE)
+docker-logspout-sourcebased
 =======================
+[![Build Status](https://travis-ci.org/ezh/docker-logspout-sourcebased.png?branch=master)](https://travis-ci.org/ezh/docker-logspout-sourcebased) [![Pulls](https://img.shields.io/docker/pulls/ezh1k/logspout.svg)](https://hub.docker.com/r/ezh1k/logspout/) [![Releases](https://img.shields.io/github/release/ezh/docker-logspout-sourcebased.svg)](https://github.com/ezh/docker-logspout-sourcebased/releases) [![License](https://img.shields.io/github/license/ezh/docker-logspout-sourcebased.svg)](https://github.com/ezh/docker-logspout-sourcebased/blob/master/LICENSE)
 
 Docker compose source based logspout configuration
 
