@@ -21,7 +21,7 @@ services:
 
 before-install:
   - |
-    set -evx
+    set -e
     sudo rm /usr/local/bin/docker-compose
     curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
     chmod +x docker-compose
@@ -30,7 +30,7 @@ before-install:
 before_script:
   - |
     # Prepare environment
-    set -evx
+    set -e
     echo $DOCKERHUB | base64 -d > .dockerhub.enc
     openssl aes-256-cbc -K $encrypted_114dd0ecacea_key -iv $encrypted_114dd0ecacea_iv -in .dockerhub.enc -out .dockerhub -d
     sh .dockerhub
@@ -41,7 +41,7 @@ before_script:
 script:
   - echo -e "\e[0;33mBuild docker image REPO:$REPO COMMIT:$COMMIT TAG:$TAG GIT_TAG:$GIT_TAG BUILD_NUMBER:$TRAVIS_BUILD_NUMBER\e[m" && echo -en 'travis_fold:start:build\\r'
   - |
-    set -evx
+    set -ev
     docker images
     docker-compose -f docker-compose.yml -f docker-compose.travis.yml up -d
     sleep 5
@@ -54,7 +54,7 @@ script:
 after_success:
   - |
     # Publish image
-    set -evx
+    set -e
     docker images
     # publish if tag contains _ symbol
     echo $GIT_TAG | grep -qe '^v[0-9]' && docker push $REPO
