@@ -1,5 +1,9 @@
 FROM buildpack-deps:jessie-curl
 
+VOLUME /mnt/routes
+EXPOSE 80
+
+ARG version=origin/master
 RUN set -x && \
     apt-get update -y && apt-get -y install apt-utils && \
     apt-get -y install git ca-certificates wget file gcc && \
@@ -12,6 +16,8 @@ RUN set -x && \
     go version && \
     go get -t -d -v  github.com/gliderlabs/logspout && \
     cd /go/src/github.com/gliderlabs/logspout/ && \
+    git reset --hard ${version} && \
+    echo Logspout working copy at $(git describe --always) && \
     go get -v -d -t github.com/ezh/logspout-logstash && \
     cp -r /go/src/github.com/ezh/logspout-logstash/ /go/src/github.com/gliderlabs/logspout/adapters/logstash/ && \
     go get -v -d -t github.com/ezh/logspout-kafka && \

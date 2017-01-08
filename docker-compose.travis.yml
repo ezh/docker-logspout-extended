@@ -1,0 +1,5 @@
+version: '2'
+services:
+  logspout:
+    image: logspout:latest
+    restart: "no"
